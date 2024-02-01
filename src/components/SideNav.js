@@ -8,7 +8,12 @@ import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 function SideNav() {
     const location = useLocation();
   return (
-    <List>
+    <List sx={{
+      backdropFilter: 'blur(1px)',
+      background: 'rgba(255, 255, 255, 0.1)',
+      borderRight: '1px solid rgba(255, 255, 255, 0.3)',
+      height: '98%'
+    }}>
       <ListItemButton component={Link} to="/" selected={location.pathname === '/'}>
       <ListItemIcon sx={{ minWidth: 'unset', marginRight: '10px' }} >
           <HomeRoundedIcon  color='secondary' />
