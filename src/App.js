@@ -16,7 +16,7 @@ function App() {
         <Header />
       </header>
       <main>
-        <Box display="flex" flexDirection={"row"} height='90vh' >
+        <Box display="flex" flexDirection={"row"} height='90vh' overflow='scroll'>
           <Box width={150}  >
             <SideNav />
           </Box>
