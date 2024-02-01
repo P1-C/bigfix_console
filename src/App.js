@@ -6,17 +6,19 @@ import Footer from "./components/Footer";
 import Welcome from "./components/Welcome";
 import SideNav from "./components/SideNav";
 import Settings from "./components/Settings";
+import Main from "./components/Main";
 
 
 function App() {
  
   return (
     <BrowserRouter>
+      {/* <Main/> */}
       <header>
         <Header />
       </header>
       <main>
-        <Box display="flex" flexDirection={"row"} height='90vh' overflow='scroll'>
+        <Box display="flex" flexDirection={"row"} height='90vh' overflow='hidden'>
           <Box width={150}  >
             <SideNav />
           </Box>

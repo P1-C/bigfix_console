@@ -21,3 +21,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  text-align: center;
+}
+
+.bg-gradient {
+  background: linear-gradient(to bottom left, #a71485, #230a6d);
+  min-height: 100vh;
+}
