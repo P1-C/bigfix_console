@@ -2,7 +2,7 @@ import create from 'zustand';
 
 // Define the initial state of the store
 const initialState = {
-  isLoggedIn: false,
+  isUserLoggedIn: false,
   username: '',
 };
 
@@ -12,7 +12,7 @@ const useUserStore = create((set) => ({
   ...initialState,
 
   // Actions
-  login: (username) => set((state) => ({ ...state, isLoggedIn: true, username })),
+  login: (username) => set((state) => ({ ...state, isUserLoggedIn: true, username })),
   logout: () => set((state) => ({ ...initialState })),
 }));
 

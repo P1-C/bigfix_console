@@ -11,8 +11,12 @@ import {
   } from "@mui/material";
   import React, { useState } from "react";
   import { CheckBox } from "@mui/icons-material";
+  import useUserStore from "../stores/userStore";
+
   
   const Login = () => {
+    const { login } = useUserStore()
+
     const paperStyle = {
       padding: " 20px 40px",
       height: "50vh",
@@ -93,6 +97,7 @@ import {
             color="primary"
             variant="contained"
             style={{ margin: "10px 0px" }}
+            onClick={login}
           >
             Login
           </Button>

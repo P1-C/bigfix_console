@@ -27,6 +27,12 @@ code {
 }
 
 .bg-gradient {
-  background: linear-gradient(to bottom left, #a71485, #230a6d);
+  background: linear-gradient(
+    45deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(69, 29, 145, 1) 25%,
+    rgba(121, 47, 166, 1) 66%,
+    rgba(177, 23, 148, 1) 100%
+  );
   min-height: 100vh;
 }
