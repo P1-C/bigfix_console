@@ -8,6 +8,7 @@ import SideNav from "./components/SideNav";
 import Settings from "./components/Settings";
 import Main from "./components/Main";
 import useUserStore from "./stores/userStore";
+import NotificationPage from "./pages/NotificationPage";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                   <Route path="/" element={<Welcome />} />
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/settings" element={<Settings />} />
+                  <Route path="/notifications" element={<NotificationPage />} />
                 </Routes>
               </Box>
             </Box>

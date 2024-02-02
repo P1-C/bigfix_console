@@ -15,6 +15,9 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 import useUserStore from '../stores/userStore';
+import { Divider, List, ListItem, ListItemText, MenuList } from '@mui/material';
+import { purple } from '@mui/material/colors';
+import { Link } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -60,13 +63,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Header() {
   const { logout } = useUserStore()
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [bellAnchorEl, setBellAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
+  const isBellMenuOpen = Boolean(bellAnchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleBellMenuOpen = (event) => {
+    setBellAnchorEl(event.currentTarget);
   };
 
   const handleMobileMenuClose = () => {
@@ -78,11 +87,19 @@ export default function Header() {
     handleMobileMenuClose();
   };
 
+  const handleBellMenuClose = () => {
+    setBellAnchorEl(null);
+  };
+  
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+
+
   const menuId = 'primary-search-account-menu';
+  const bellMenuId = 'primary-search-bell-menu';
+
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -105,6 +122,48 @@ export default function Header() {
     </Menu>
   );
 
+  const renderBellMenu = (
+    <Menu
+      sx={{ maxWidth: '20rem'}}
+      anchorEl={bellAnchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'left',
+      }}
+      id={bellMenuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'bottom',
+        horizontal: 'right',
+      }}
+      open={isBellMenuOpen}
+      onClose={handleBellMenuClose}
+    >
+      <MenuList dense>
+
+        <MenuItem >
+          <ListItemText >Security configuration changes applied</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemText >Custom fixlet executed on Nebula23</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemText >License violation detected on ...</ListItemText>
+        </MenuItem>
+        <MenuItem>
+          <ListItemText >Restart postponed on AstroBookPro19</ListItemText>
+        </MenuItem>
+        <Divider/>
+        <MenuItem>
+        <Link to="/notifications" style={{ textDecoration: 'none', color: 'inherit' }} onClick={handleBellMenuClose}>
+        <ListItemText sx={{ color: 'purple' }}>See all notifications</ListItemText>
+      </Link>
+        </MenuItem>
+
+      </MenuList>
+    </Menu>
+  );
+
   const mobileMenuId = 'primary-search-account-menu-mobile';
   const renderMobileMenu = (
     <Menu
@@ -122,15 +181,7 @@ export default function Header() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
+      <MenuItem onClick={handleBellMenuOpen}>
         <IconButton
           size="large"
           aria-label="show 13 new notifications"
@@ -184,6 +235,7 @@ export default function Header() {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              onClick={handleBellMenuOpen}
             >
               <Badge badgeContent={13} color="error">
                 <NotificationsIcon />
@@ -217,6 +269,7 @@ export default function Header() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      {renderBellMenu}
     </Box>
   );
 }

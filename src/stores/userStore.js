@@ -1,19 +1,25 @@
 import create from 'zustand';
+import { persist } from 'zustand/middleware';
 
 // Define the initial state of the store
 const initialState = {
   isUserLoggedIn: false,
-  username: '',
 };
 
 // Create the Zustand store
-const useUserStore = create((set) => ({
-  // State
-  ...initialState,
+const useUserStore = create(persist(
+  (set) => ({
+    // State
+    ...initialState,
 
-  // Actions
-  login: (username) => set((state) => ({ ...state, isUserLoggedIn: true, username })),
-  logout: () => set((state) => ({ ...initialState })),
-}));
+    // Actions
+    login: () => set((state) => ({ ...state, isUserLoggedIn: true })),
+    logout: () => set((state) => ({ ...initialState })),
+  }),
+  {
+    name: 'user-store', 
+    getStorage: () => localStorage,
+  }
+));
 
 export default useUserStore;
