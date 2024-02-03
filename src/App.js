@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import Welcome from "./components/Welcome";
 import SideNav from "./components/SideNav";
 import Settings from "./components/Settings";
+import Actions from "./components/Actions";
 import Main from "./components/Main";
 import useUserStore from "./stores/userStore";
 import NotificationPage from "./pages/NotificationPage";
@@ -33,7 +34,8 @@ function App() {
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/notifications" element={<NotificationPage />} />
-                </Routes>
+                  <Route path="/actions" element={<Actions />} />
+            </Routes>
               </Box>
             </Box>
           </main>
