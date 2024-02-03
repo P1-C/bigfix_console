@@ -32,6 +32,12 @@ function SideNav() {
         </ListItemIcon>
         <ListItemText primary="Settings" />
       </ListItemButton>
+      <ListItemButton component={Link} to="/actions" selected={location.pathname === '/actions'} icon>
+        <ListItemIcon sx={{ minWidth: 'unset', marginRight: '10px' }}>
+          <SettingsSuggestRoundedIcon color='secondary' />
+        </ListItemIcon>
+        <ListItemText primary="Actions" />
+      </ListItemButton>
     </List>
   );
 }
