@@ -18,7 +18,7 @@ import {
     const { login } = useUserStore()
 
     const paperStyle = {
-      padding: " 20px 40px",
+      padding: "20px 40px",
       height: "50vh",
       width: "25vw",
       margin: "20px auto",

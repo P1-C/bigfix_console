@@ -13,7 +13,7 @@ function Notifier() {
   const closeAction = (
     <React.Fragment>
       <IconButton
-        sx={{ marginRight: "10px" }}
+        sx={{ marginRight: "2rem" }}
         size="medium"
         aria-label="close"
         color="inherit"
@@ -35,12 +35,13 @@ function Notifier() {
   return (
     <Snackbar
       sx={{
-        opacity: "80%",
+        opacity: "90%",
         margin: "-25px",
         "& .MuiSnackbarContent-root": {
           minWidth: "100vw",
-          backdropFilter: "blur('10px')",
-          background: "rgba(255, 255, 255, 0.1)",
+          color: 'black',
+          backdropFilter: "blur(10px)",
+          background: "rgba(255, 255, 255, 0.8)",
         },
       }}
       open={display}
