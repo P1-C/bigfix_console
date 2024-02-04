@@ -10,12 +10,15 @@ import Actions from "./components/Actions";
 import Main from "./components/Main";
 import useUserStore from "./stores/userStore";
 import NotificationPage from "./pages/NotificationPage";
-
+import Fixlet from "./components/Fixlet";
+//import {useState} from 'react';
+import Notifier from "./components/Notifier";
 
 function App() {
 
-  const { isUserLoggedIn } = useUserStore()
+  const { isUserLoggedIn } = useUserStore();
 
+  
   return (
     <BrowserRouter>
       {!isUserLoggedIn ? <Main /> :
@@ -24,7 +27,7 @@ function App() {
             <Header />
           </header>
           <main>
-            <Box display="flex" flexDirection={"row"} height='90vh' overflow='hidden'>
+            <Box display="flex" flexDirection={"row"} height='88vh' overflow='hidden'>
               <Box width={150}  >
                 <SideNav />
               </Box>
@@ -35,17 +38,20 @@ function App() {
                   <Route path="/settings" element={<Settings />} />
                   <Route path="/notifications" element={<NotificationPage />} />
                   <Route path="/actions" element={<Actions />} />
+                  <Route path="/fixlets" element={<Fixlet />} />
             </Routes>
               </Box>
             </Box>
           </main>
-          {/* <footer>
+          <footer>
+            <Notifier/>
           <Footer />
-          </footer> */}
+          </footer>
         </>
       }
     </BrowserRouter>
   );
-}
+};
+
 
 export default App;

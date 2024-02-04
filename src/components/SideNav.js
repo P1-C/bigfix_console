@@ -3,7 +3,9 @@ import { List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { Link, useLocation } from 'react-router-dom';
 import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
 import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
+import TaskIcon from '@mui/icons-material/Task';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import TouchAppIcon from '@mui/icons-material/TouchApp';
 
 function SideNav() {
     const location = useLocation();
@@ -26,6 +28,12 @@ function SideNav() {
         </ListItemIcon>
         <ListItemText primary="Dashboard" />
       </ListItemButton>
+      <ListItemButton component={Link} to="/fixlets" selected={location.pathname === '/fixlets'}>
+      <ListItemIcon sx={{ minWidth: 'unset', marginRight: '10px' }}>
+          <TaskIcon color='secondary' />
+        </ListItemIcon>
+        <ListItemText primary="Fixlets" />
+      </ListItemButton>
       <ListItemButton component={Link} to="/settings" selected={location.pathname === '/settings'} icon>
         <ListItemIcon sx={{ minWidth: 'unset', marginRight: '10px' }}>
           <SettingsSuggestRoundedIcon color='secondary' />
@@ -34,7 +42,7 @@ function SideNav() {
       </ListItemButton>
       <ListItemButton component={Link} to="/actions" selected={location.pathname === '/actions'} icon>
         <ListItemIcon sx={{ minWidth: 'unset', marginRight: '10px' }}>
-          <SettingsSuggestRoundedIcon color='secondary' />
+          <TouchAppIcon color='secondary' />
         </ListItemIcon>
         <ListItemText primary="Actions" />
       </ListItemButton>
