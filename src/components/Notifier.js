@@ -35,7 +35,6 @@ function Notifier() {
   return (
     <Snackbar
       sx={{
-        opacity: "90%",
         margin: "-25px",
         zIndex: 1,
         "& .MuiSnackbarContent-root": {
