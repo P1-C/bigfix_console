@@ -37,6 +37,7 @@ function Notifier() {
       sx={{
         opacity: "90%",
         margin: "-25px",
+        zIndex: 1,
         "& .MuiSnackbarContent-root": {
           minWidth: "100vw",
           color: 'black',
