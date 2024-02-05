@@ -43,6 +43,6 @@ code {
   position: fixed;
   text-align: right;
   width: 100%;
-  right: 5rem;
-  bottom: 1rem;
+  right: 0.2rem;
+  bottom: 0.5rem;
 }
