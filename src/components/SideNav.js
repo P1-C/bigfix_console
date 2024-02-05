@@ -81,13 +81,13 @@ function SideNav() {
           horizontal: 'center',
         }}
       >
-        <MenuItem dense component={Link} to={`/${ctxMenuType}`}>Open all {ctxMenuType}</MenuItem>
+        <MenuItem dense component={Link} to={`/${ctxMenuType}`} onClick={handleCloseContextMenu}>Open all {ctxMenuType}</MenuItem>
         {ctxMenuType === 'fixlets' &&
           (<>
-            <MenuItem dense component={Link} to={`/fixlets`}>Only fixlets</MenuItem>
-            <MenuItem dense component={Link} to={`/fixlets`}>Only tasks</MenuItem>
+            <MenuItem dense component={Link} to={`/fixlets`} onClick={handleCloseContextMenu}>Only fixlets</MenuItem>
+            <MenuItem dense component={Link} to={`/fixlets`} onClick={handleCloseContextMenu}>Only tasks</MenuItem>
           </>)}
-        <MenuItem dense component={Link} to={`/create-${ctxMenuType}`} >Create {ctxMenuType}</MenuItem>
+        <MenuItem dense component={Link} to={ctxMenuType === 'baselines' ?`/create-${ctxMenuType}` : `/${ctxMenuType}`} onClick={handleCloseContextMenu}>Create {ctxMenuType}</MenuItem>
         <Divider  />
         <MenuItem dense onClick={handleCloseContextMenu} >more options ...</MenuItem>
       </Menu>
