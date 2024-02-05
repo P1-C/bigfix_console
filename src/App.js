@@ -29,7 +29,7 @@ function App() {
             <Header />
           </header>
           <main>
-            <Box display="flex" flexDirection={"row"} height='88vh' overflow='hidden'>
+            <Box display="flex" flexDirection={"row"} height='91vh' overflow='hidden'>
               <Box width={150}  >
                 <SideNav />
               </Box>

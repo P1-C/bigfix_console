@@ -17,17 +17,7 @@ const CardComponent = (props) => {
         <Box style={boxStyles}>
             {
                 props.consoleData.map((card, index) => {
-                    if (card.title === 'Actions') {
-                        return <Link to='/actions' style={{textDecoration: 'none'}}>
-                            <Paper elevation={7} key={`card-${index}`}>
-                                <Card style={cardStyles} variant='outlined'>
-                                    <CardContent>{card.title}</CardContent>
-                                    <CardContent>{card.count}</CardContent>
-                                </Card>
-                            </Paper>
-                        </Link>;
-                    }
-                    return <Paper elevation={7} key={`card-${index}`}>
+                    return <Paper component={Link} to={`/${card.route}`} style={{textDecoration: 'none'}} elevation={7} key={`card-${index}`}>
                         <Card style={cardStyles} variant='outlined'>
                             <CardContent>{card.title}</CardContent>
                             <CardContent>{card.count}</CardContent>

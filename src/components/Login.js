@@ -12,10 +12,12 @@ import {
   import React, { useState } from "react";
   import { CheckBox } from "@mui/icons-material";
   import useUserStore from "../stores/userStore";
+import { useNavigate } from "react-router";
 
   
   const Login = () => {
     const { login } = useUserStore()
+    const navigate  = useNavigate()
 
     const paperStyle = {
       padding: "20px 40px",
@@ -32,6 +34,11 @@ import {
     const handleServer = (e) => {
       setServer(e.target.value);
     };
+
+    const handleLogin = (second) => { 
+      login()
+      navigate('/')
+     }
   
     return (
       <Grid style={container}>
@@ -97,7 +104,7 @@ import {
             color="primary"
             variant="contained"
             style={{ margin: "10px 0px" }}
-            onClick={login}
+            onClick={handleLogin}
           >
             Login
           </Button>

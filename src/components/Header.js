@@ -56,7 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
       width: '20ch',
     },
-    
+
   },
 }));
 
@@ -90,7 +90,7 @@ export default function Header() {
   const handleBellMenuClose = () => {
     setBellAnchorEl(null);
   };
-  
+
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
@@ -124,7 +124,7 @@ export default function Header() {
 
   const renderBellMenu = (
     <Menu
-      sx={{ maxWidth: '20rem'}}
+      sx={{ maxWidth: '20rem' }}
       anchorEl={bellAnchorEl}
       anchorOrigin={{
         vertical: 'top',
@@ -153,13 +153,12 @@ export default function Header() {
         <MenuItem>
           <ListItemText >Restart postponed on AstroBookPro19</ListItemText>
         </MenuItem>
-        <Divider/>
-        <MenuItem>
-        <Link to="/notifications" style={{ textDecoration: 'none', color: 'inherit' }} onClick={handleBellMenuClose}>
-        <ListItemText sx={{ color: 'purple' }}>See all notifications</ListItemText>
-      </Link>
+        <Divider />
+        <MenuItem component={Link} to="/notifications">
+          <Link style={{ textDecoration: 'none', color: 'inherit' }} onClick={handleBellMenuClose}>
+            <ListItemText sx={{ color: 'purple' }}>See all notifications</ListItemText>
+          </Link>
         </MenuItem>
-
       </MenuList>
     </Menu>
   );

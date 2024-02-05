@@ -1,22 +1,27 @@
 export const CONSOLE_DATA = [
     {
         title: 'Fixlets and Tasks',
+        route: 'fixlets',
         count: 114
     },
     {
         title: 'Webui apps',
+        route: 'dashboard',
         count: 11
     },
     {
         title: 'Baselines',
+        route: 'baselines',
         count: 8
     },
     {
         title: 'Analyses',
+        route: 'dashboard',
         count: 30
     },
     {
         title: 'Actions',
+        route: 'actions',
         count: 12
     }
 ];

@@ -1,59 +1,7 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import Header from "./Header";
-import SideNav from "./SideNav";
-import { Box, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import useNotificationStore from "../stores/notificationStore";
-
-// const columns = [
-//   { field: "id", headerName: "ID", width: 50 },
-//   { field: "name", headerName: "Name", width: 250 },
-//   { field: "site", headerName: "Site", width: 130 },
-//   { field: "source", headerName: "Source", width: 130 },
-//   {
-//     field: "applicableComputers",
-//     headerName: "Applicable computers",
-//     width: 90,
-//   },
-//   {
-//     field: "category",
-//     headerName: "Full name",
-//     width: 130,
-//   },
-//   {
-//     field: "downloadSize",
-//     headerName: "Download size",
-//     width: 130,
-//   },
-//   {
-//     field: "openAction",
-//     headerName: "Open Action",
-//     type: "number",
-//     width: 70,
-//   },
-//   {
-//     field: "button",
-//     headerName: "Action",
-//     width: 150,
-//     renderCell: (params) => {
-//       return (
-//         <Button
-//           variant="contained"
-//           color="primary"
-//           onClick={ ()=> showNotification(params.row.id)}
-//             //() => handleButtonClick(params.row.id)}
-//         >
-//           Submit
-//         </Button>
-//       );
-//     },
-//   },
-// ];
-
-// const handleButtonClick = (id) => {
-//   console.log(`Button clicked for row with the ID : ${id}`);
-//   console.log(rows[id]);
-// };
 
 const rows = [
   {
@@ -187,7 +135,7 @@ export default function Fixlet() {
             color="primary"
             onClick={() => {
               showNotification(`${params.row.name} is running currently.....`);
-              setTimeout(()=>{showNotification(`${params.row.name} has been Applied successfully`)}, 10000)
+              setTimeout(() => { showNotification(`${params.row.name} has been Applied successfully`) }, 10000)
             }}
           >
             Submit
@@ -209,11 +157,20 @@ export default function Fixlet() {
         }}
         pageSizeOptions={[5, 8, 10]}
         checkboxSelection
-        style={{
+        sx={{
           color: "white",
           height: "80%",
           backdropFilter: "blur('4px')",
           background: "rgba(255, 255, 255, 0.1)",
+          '& .MuiCheckbox-root svg path': {
+            color: 'white'
+          },
+          '& .MuiToolbar-root': {
+            color: 'white'
+          },
+          '& .MuiSvgIcon-root': {
+            color: 'white'
+          }
         }}
       />
     </>
