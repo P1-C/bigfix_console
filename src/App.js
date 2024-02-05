@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
+import {Box} from "@mui/material";
 import Header from "./components/Header";
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import {Route, Routes, BrowserRouter} from 'react-router-dom';
 import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
 import Welcome from "./components/Welcome";
@@ -13,12 +13,14 @@ import NotificationPage from "./pages/NotificationPage";
 import Fixlet from "./components/Fixlet";
 //import {useState} from 'react';
 import Notifier from "./components/Notifier";
+import BaselineData from "./components/BaselineData";
+import Baseline from "./components/Baseline";
 
 function App() {
 
-  const { isUserLoggedIn } = useUserStore();
+  const {isUserLoggedIn} = useUserStore();
 
-  
+
   return (
     <BrowserRouter>
       {!isUserLoggedIn ? <Main /> :
@@ -39,13 +41,15 @@ function App() {
                   <Route path="/notifications" element={<NotificationPage />} />
                   <Route path="/actions" element={<Actions />} />
                   <Route path="/fixlets" element={<Fixlet />} />
-            </Routes>
+                  <Route path="/create-baselines" element={<Baseline />} />
+                  <Route path='/baselines' element={<BaselineData />} />
+                </Routes>
               </Box>
             </Box>
           </main>
           <footer>
-            <Notifier/>
-          <Footer />
+            <Notifier />
+            <Footer />
           </footer>
         </>
       }

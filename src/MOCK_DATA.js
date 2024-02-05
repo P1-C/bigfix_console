@@ -1,4 +1,4 @@
-export const consoleData = [
+export const CONSOLE_DATA = [
     {
         title: 'Fixlets and Tasks',
         count: 114
@@ -21,7 +21,7 @@ export const consoleData = [
     }
 ];
 
-export const DeploymentOverviewOptions = [{
+export const DEPLOYMENT_OVERVIEW_OPTIONS = [{
     animationEnabled: true,
     backgroundColor: "transparent",
     title: {
@@ -82,7 +82,7 @@ export const DeploymentOverviewOptions = [{
 },
 ];
 
-export const actionColumns = [
+export const ACTION_COLUMNS = [
     {field: 'timeIssued', headerName: 'Time Issued', flex: 1},
     {field: 'state', headerName: 'State', flex: 1},
     {field: 'complete', headerName: '% Completed', flex: 1},
@@ -92,11 +92,51 @@ export const actionColumns = [
     {field: 'type', headerName: 'Type', flex: 1},
 ];
 
-export const actionRows = [
+export const ACTION_ROWS = [
     {id: 1, timeIssued: '1/24/2024 3: 58: 16 PM', state: 'Expired', complete: '100.00% (1 / 1)', name: 'Accept License for Patch', site: 'Master Operator Site', issuedBy: 'BigfixServer', type: 'Single Action'},
     {id: 2, timeIssued: '1/24/2024 3: 58: 17 PM', state: 'Expired', complete: '100.00% (1 / 1)', name: 'Accept License for Patch', site: 'Master Operator Site', issuedBy: 'BigfixServer', type: 'Single Action'},
-    {id: 3, timeIssued: '12/19/2023 12:37:47 PM', state: 'Expired', complete: '100.00 % (1 / 1)', name: 'Accept License for Lifecycle', site: 'Master Operator Site', issuedBy: 'BigfixServer', type: 'Single Action'	},
-    {id: 4, timeIssued: '12/19/2023 12:37:45 PM', state: 'Expired', complete: '100.00 % (1 / 1)', name: 'Accept License for Lifecycle', site: 'Master Operator Site', issuedBy: 'BigfixServer', type: 'Single Action'	},
+    {id: 3, timeIssued: '12/19/2023 12:37:47 PM', state: 'Expired', complete: '100.00 % (1 / 1)', name: 'Accept License for Lifecycle', site: 'Master Operator Site', issuedBy: 'BigfixServer', type: 'Single Action'},
+    {id: 4, timeIssued: '12/19/2023 12:37:45 PM', state: 'Expired', complete: '100.00 % (1 / 1)', name: 'Accept License for Lifecycle', site: 'Master Operator Site', issuedBy: 'BigfixServer', type: 'Single Action'},
     {id: 5, timeIssued: '1/24/2024 3:58:15 PM', state: 'Expired', complete: '100.00% (1 / 1)', name: 'Accept License for Patch', site: 'Master Operator Site', issuedBy: 'BigfixServer', type: 'Single Action'},
     {id: 6, timeIssued: '1/24/2024 3:58:14 PM', state: 'Expired', complete: '100.00% (1 / 1)', name: 'Accept License for Patch', site: 'Master Operator Site', issuedBy: 'BigfixServer', type: 'Single Action'},
 ];
+
+export const EXISTING_SITES = [
+    {label: 'Master Action Site'},
+    {label: 'Custom Site1'},
+    {label: 'Custom Site2'},
+];
+
+export const DOMAINS = [
+    {label: 'All Content'},
+    {label: 'Bigfix Management'},
+    {label: 'Patch Management'},
+    {label: 'System Lifecycle'},
+];
+
+export const BASELINE_COMPONENTS = [
+    {column1: '3125861: Vulnerability in Internet Explorer could lead to ASLR bypass - Enable the User32 Exception Handler Hardening', column2: 'No Action Selected'},
+    {column1: 'Disable hardening changes for Windows DCOM Server Security Feature Bypass (CVE-2021-26414) - KB5004442', column2: 'No Action Selected'},
+    {column1: 'MS24-JAN: Cumulative Update for .NET Framework 3.5 and 4.8.1 for Windows 10 Version 22H2', column2: 'No Action Selected'},
+    {column1: '2868725: Security advisory: Update for disabling RC4 - Enable Workaround (Completely disable RC4)', column2: 'No Action Selected'},
+];
+
+export const BASELINE_COMPONENT_ACTIONS = [
+    {label: 'No Action Selected'},
+    {label: 'Action 1'},
+    {label: 'Action 2'},
+];
+
+export const BASELINE_COLUMNS = [
+    {field: 'name', headerName: 'Name', flex: 1},
+    {field: 'site', headerName: 'Site', flex: 1},
+    {field: 'applicableComputerCount', headerName: 'Applicable Computer Count', flex: 1},
+    {field: 'openActionCount', headerName: 'Open Action Count', flex: 1},
+]
+
+export const BASELINE_ROWS = [
+    {id: 1,name: 'CustomBaseline1', site: 'Test-site1', applicableComputerCount: '1/1', openActionCount: '0'},
+    {id: 2,name: 'CustomBaseline2', site: 'Test-site2', applicableComputerCount: '1/1', openActionCount: '1'},
+    {id: 3,name: 'CustomBaseline3', site: 'Test-site3', applicableComputerCount: '1/1', openActionCount: '0'},
+    {id: 4,name: 'CustomBaseline4', site: 'Test-site4', applicableComputerCount: '1/1', openActionCount: '1'},
+]
