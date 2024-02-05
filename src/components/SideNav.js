@@ -87,7 +87,7 @@ function SideNav() {
             <MenuItem dense component={Link} to={`/fixlets`}>Only fixlets</MenuItem>
             <MenuItem dense component={Link} to={`/fixlets`}>Only tasks</MenuItem>
           </>)}
-        <MenuItem dense component={Link} to={`/${ctxMenuType}`} >Create {ctxMenuType}</MenuItem>
+        <MenuItem dense component={Link} to={`/create-${ctxMenuType}`} >Create {ctxMenuType}</MenuItem>
         <Divider  />
         <MenuItem dense onClick={handleCloseContextMenu} >more options ...</MenuItem>
       </Menu>

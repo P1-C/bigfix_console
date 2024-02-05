@@ -12,7 +12,6 @@ const ActionArea = ({value}) => {
     if (value === 'summary') {
         return (
             <div style={{overflow: 'hidden'}}>
-
                 <Accordion defaultExpanded style={{backgroundColor: 'black', color: 'white'}}>
                     <AccordionSummary
                         expandIcon={<ExpandMore sx={{color: 'white'}} />}>
@@ -108,7 +107,7 @@ const ActionArea = ({value}) => {
     }
     else if (value === 'target') {
         return (
-            <>
+            <div>
                 <FormControl>
                     <FormLabel style={{color: 'white'}}>Target</FormLabel>
                     <RadioGroup
@@ -121,7 +120,7 @@ const ActionArea = ({value}) => {
                     </RadioGroup>
                 </FormControl>
                 <ComputersDataTable name={'Selected Computers'} />
-            </>
+            </div>
         );
     }
 

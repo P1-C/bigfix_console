@@ -2,16 +2,12 @@ import {IconButton, InputBase} from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import React, {useState} from 'react';
 import {DataGrid} from '@mui/x-data-grid';
-import {actionColumns, actionRows} from '../MOCK_DATA';
+import {ACTION_COLUMNS, ACTION_ROWS} from '../MOCK_DATA';
 import DrawerComponent from './DrawerComponent';
 
 const Actions = () => {
 
     const [open, setOpen] = useState(false);
-    const handleSelectionChange = (newSelection) => {
-        console.log(newSelection);
-        setOpen(newSelection.selectionModel.length > 0);
-    };
 
     const closeDrawer = () => {
         setOpen(false);
@@ -78,12 +74,11 @@ const Actions = () => {
             <div style={{height: '79vh', width: 'calc(100vw - 170)'}}>
                 <DataGrid
                     sx={dataGridStyles}
-                    rows={actionRows}
-                    columns={actionColumns}
+                    rows={ACTION_ROWS}
+                    columns={ACTION_COLUMNS}
                     checkboxSelection
                     hideFooter
                     onCellClick={() => {setOpen(true);}}
-                    onSelectionModelChange={handleSelectionChange}
                 />
             </div>
             <DrawerComponent open={open} onClose={closeDrawer} />

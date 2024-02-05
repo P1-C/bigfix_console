@@ -10,8 +10,6 @@ const Piechart = ({options1}) => {
         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 300px))',
         margin: '2rem 0',
         justifyContent: 'space-between',
-        // gap: '2rem',
-        // maxWidth: '1100px',
         padding: '0px 300px 0px 100px'
     };
 

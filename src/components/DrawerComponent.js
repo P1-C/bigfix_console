@@ -21,7 +21,7 @@ const DrawerComponent = ({open, onClose}) => {
         justifyContent: 'start',
         gap: '0.5rem',
         flex: 1,
-        
+
     };
     const drawerStyles = {
         display: 'flex',
@@ -67,12 +67,12 @@ const DrawerComponent = ({open, onClose}) => {
                             variant='fullWidth'
                         >
                             <Tab style={{color: 'white'}} value="summary" label="Summary" />
-                            <Tab style={{color: 'white'}}  value="reportedComputers" label="Reported Computers" />
+                            <Tab style={{color: 'white'}} value="reportedComputers" label="Reported Computers" />
                             <Tab style={{color: 'white'}} value="target" label="Target" />
                         </Tabs>
                     </Box>
 
-                    <ActionArea value={value}/>
+                    <ActionArea value={value} />
                 </div>
             </Drawer>
         </div>
