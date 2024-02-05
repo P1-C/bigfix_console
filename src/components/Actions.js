@@ -71,7 +71,7 @@ const Actions = () => {
                     </IconButton>
                 </div>
             </div>
-            <div style={{height: '79vh', width: 'calc(100vw - 170)'}}>
+            <div style={{minHeight: '79vh', width: 'calc(100vw - 170)'}}>
                 <DataGrid
                     sx={dataGridStyles}
                     rows={ACTION_ROWS}
