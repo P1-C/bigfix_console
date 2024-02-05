@@ -154,8 +154,8 @@ export default function Header() {
           <ListItemText >Restart postponed on AstroBookPro19</ListItemText>
         </MenuItem>
         <Divider />
-        <MenuItem component={Link} to="/notifications">
-          <Link style={{ textDecoration: 'none', color: 'inherit' }} onClick={handleBellMenuClose}>
+        <MenuItem component={Link} to="/notifications" onClick={handleBellMenuClose}>
+          <Link style={{ textDecoration: 'none', color: 'inherit' }} >
             <ListItemText sx={{ color: 'purple' }}>See all notifications</ListItemText>
           </Link>
         </MenuItem>
