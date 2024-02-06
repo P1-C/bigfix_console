@@ -34,7 +34,7 @@ const DraggableRow = ({index, moveRow, children}) => {
     );
 };
 
-const DraggableTable = ({rows}) => {
+const DraggableTable = () => {
     const [data, setData] = useState(BASELINE_COMPONENTS);
 
     const moveRow = (fromIndex, toIndex) => {
@@ -53,9 +53,9 @@ const DraggableTable = ({rows}) => {
                     </TableHead>
                     <TableBody>
                         {data.map((row, index) => (
-                            <DraggableRow key={index} index={index} moveRow={moveRow}>
+                            <DraggableRow key={row.id} index={index} moveRow={moveRow}>
                                 <TableCell sx={{color: 'white'}}>
-                                    <ArrowForwardIosIcon sx={{position:'relative', top: '0.4rem'}}/>
+                                    <ArrowForwardIosIcon sx={{position: 'relative', top: '0.4rem'}} />
                                     {row.column1}
                                 </TableCell>
                                 <TableCell sx={{color: 'white'}}>
