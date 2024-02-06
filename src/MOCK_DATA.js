@@ -120,10 +120,10 @@ export const DOMAINS = [
 ];
 
 export const BASELINE_COMPONENTS = [
-    {column1: '3125861: Vulnerability in Internet Explorer could lead to ASLR bypass - Enable the User32 Exception Handler Hardening', column2: 'No Action Selected'},
-    {column1: 'Disable hardening changes for Windows DCOM Server Security Feature Bypass (CVE-2021-26414) - KB5004442', column2: 'No Action Selected'},
-    {column1: 'MS24-JAN: Cumulative Update for .NET Framework 3.5 and 4.8.1 for Windows 10 Version 22H2', column2: 'No Action Selected'},
-    {column1: '2868725: Security advisory: Update for disabling RC4 - Enable Workaround (Completely disable RC4)', column2: 'No Action Selected'},
+    {id: 1, column1: '3125861: Vulnerability in Internet Explorer could lead to ASLR bypass - Enable the User32 Exception Handler Hardening', column2: 'No Action Selected'},
+    {id: 2, column1: 'Disable hardening changes for Windows DCOM Server Security Feature Bypass (CVE-2021-26414) - KB5004442', column2: 'No Action Selected'},
+    {id: 3, column1: 'MS24-JAN: Cumulative Update for .NET Framework 3.5 and 4.8.1 for Windows 10 Version 22H2', column2: 'No Action Selected'},
+    {id: 4, column1: '2868725: Security advisory: Update for disabling RC4 - Enable Workaround (Completely disable RC4)', column2: 'No Action Selected'},
 ];
 
 export const BASELINE_COMPONENT_ACTIONS = [
