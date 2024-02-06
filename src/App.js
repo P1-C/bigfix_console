@@ -15,15 +15,17 @@ import Fixlet from "./components/Fixlet";
 import Notifier from "./components/Notifier";
 import BaselineData from "./components/BaselineData";
 import Baseline from "./components/Baseline";
+import Timeout from "./components/Timeout";
 
 function App() {
 
-  const {isUserLoggedIn} = useUserStore();
-
+  const {isUserLoggedIn, isTimeOut} = useUserStore();
 
   return (
     <BrowserRouter>
-      {!isUserLoggedIn ? <Main /> :
+    
+     {(!isUserLoggedIn  && !isTimeOut) ? <Main/> :
+       isTimeOut ? <Timeout/> :  
         <>
           <header>
             <Header />
@@ -43,6 +45,7 @@ function App() {
                   <Route path="/fixlets" element={<Fixlet />} />
                   <Route path="/create-baselines" element={<Baseline />} />
                   <Route path='/baselines' element={<BaselineData />} />
+                  <Route path='/timeout' element={<Timeout />} />
                 </Routes>
               </Box>
             </Box>

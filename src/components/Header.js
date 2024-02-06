@@ -118,6 +118,7 @@ export default function Header() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={logout}>Timeout</MenuItem>
       <MenuItem onClick={logout}>Log out</MenuItem>
     </Menu>
   );
