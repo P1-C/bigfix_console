@@ -61,7 +61,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
-  const { logout } = useUserStore()
+  const { logout, enableTimeout } = useUserStore()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [bellAnchorEl, setBellAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -118,7 +118,7 @@ export default function Header() {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={logout}>Timeout</MenuItem>
+      <MenuItem onClick={enableTimeout}>Timeout</MenuItem>
       <MenuItem onClick={logout}>Log out</MenuItem>
     </Menu>
   );

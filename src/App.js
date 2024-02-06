@@ -1,6 +1,6 @@
-import {Box} from "@mui/material";
+import { Box } from "@mui/material";
 import Header from "./components/Header";
-import {Route, Routes, BrowserRouter} from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
 import Welcome from "./components/Welcome";
@@ -19,13 +19,13 @@ import Timeout from "./components/Timeout";
 
 function App() {
 
-  const {isUserLoggedIn, isTimeOut} = useUserStore();
+  const { isUserLoggedIn, isTimeOut } = useUserStore();
 
   return (
     <BrowserRouter>
-    
-     {(!isUserLoggedIn  && !isTimeOut) ? <Main/> :
-       isTimeOut ? <Timeout/> :  
+
+      {(!isUserLoggedIn && !isTimeOut) && <Main />}
+      {(isUserLoggedIn && !isTimeOut) &&
         <>
           <header>
             <Header />
@@ -45,7 +45,6 @@ function App() {
                   <Route path="/fixlets" element={<Fixlet />} />
                   <Route path="/create-baselines" element={<Baseline />} />
                   <Route path='/baselines' element={<BaselineData />} />
-                  <Route path='/timeout' element={<Timeout />} />
                 </Routes>
               </Box>
             </Box>
@@ -56,6 +55,7 @@ function App() {
           </footer>
         </>
       }
+      {(isUserLoggedIn && isTimeOut) && <Timeout />}
     </BrowserRouter>
   );
 };

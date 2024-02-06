@@ -16,7 +16,7 @@ const useUserStore = create(persist(
 
     // Actions
     login: () => set((state) => ({ ...state, isUserLoggedIn: true })),
-    logout: () => set((state) => ({ ...initialState })),
+    logout: () => set((state) => ({ ...state, isUserLoggedIn: false })),
     enableTimeout: () => set((state) => ({ ...state, isTimeOut: true })),
     disableTimeout: () => set((state) => ({ ...initialState})),
   }),

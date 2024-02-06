@@ -16,12 +16,12 @@ const Timeout = () => {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      spacing={5}
-      paddingX={50}
-      paddingY={20}
+      spacing={4}
+      paddingX={10}
+      paddingY={15}
     >
-      <Card style={{cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', opacity: '80%'}} variant="outlined">
-        <CardContent><InfoIcon/></CardContent>
+      <Card style={{ cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', opacity: '80%' }} variant="outlined">
+        <CardContent><InfoIcon /></CardContent>
         <CardContent>Your session has expired. Please login Again.</CardContent>
       </Card>
       <svg
@@ -38,19 +38,19 @@ const Timeout = () => {
         />
         <circle r="6" cy="27.25" cx="25.875" fill="#ABC450" />
       </svg>
-      <Typography variant="h3">It's Built for you</Typography>
-      <Typography variant="h6">
-        It's your one stop shop for Endpoint Management Software. We are
-        commited to making it easy for you and your team to do great work
-        everyday.
-      </Typography>
+      <Typography variant="h3">It's Built for you.</Typography>
+        <Typography maxWidth={700} variant="h6">
+          It's your one-stop shop for Endpoint Management Software. We are
+          commited to making it easy for you and your team to do great work
+          everyday.
+        </Typography>
       <Button
         variant="contained"
         color="warning"
-        style={{ height: "60px", width: "200px" }}
+        style={{ height: "50px", width: "180px" }}
         onClick={handleSignIn}
       >
-        <Typography fontSize={20}>Sign In</Typography>
+        <Typography fontSize={18}>Sign In</Typography>
       </Button>
     </Stack>
   );
