@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
+import {Box} from "@mui/material";
 import Header from "./components/Header";
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import {Route, Routes, BrowserRouter} from 'react-router-dom';
 import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
 import Welcome from "./components/Welcome";
@@ -16,47 +16,51 @@ import Notifier from "./components/Notifier";
 import BaselineData from "./components/BaselineData";
 import Baseline from "./components/Baseline";
 import Timeout from "./components/Timeout";
+import {DndProvider} from "react-dnd";
+import {HTML5Backend} from "react-dnd-html5-backend";
 
 function App() {
 
-  const { isUserLoggedIn, isTimeOut } = useUserStore();
-
+  const {isUserLoggedIn, isTimeOut} = useUserStore();
+  
   return (
-    <BrowserRouter>
+    <DndProvider backend={HTML5Backend}>
+      <BrowserRouter>
 
-      {(!isUserLoggedIn && !isTimeOut) && <Main />}
-      {(isUserLoggedIn && !isTimeOut) &&
-        <>
-          <header>
-            <Header />
-          </header>
-          <main>
-            <Box display="flex" flexDirection={"row"} height='91vh' overflow='hidden'>
-              <Box width={150}  >
-                <SideNav />
+        {(!isUserLoggedIn && !isTimeOut) && <Main />}
+        {(isUserLoggedIn && !isTimeOut) &&
+          <>
+            <header>
+              <Header />
+            </header>
+            <main>
+              <Box display="flex" flexDirection={"row"} height='91vh' overflow='hidden'>
+                <Box width={150}  >
+                  <SideNav />
+                </Box>
+                <Box flex={1} px={3} >
+                  <Routes>
+                    <Route path="/" element={<Welcome />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/settings" element={<Settings />} />
+                    <Route path="/notifications" element={<NotificationPage />} />
+                    <Route path="/actions" element={<Actions />} />
+                    <Route path="/fixlets" element={<Fixlet />} />
+                    <Route path="/create-baselines" element={<Baseline />} />
+                    <Route path='/baselines' element={<BaselineData />} />
+                  </Routes>
+                </Box>
               </Box>
-              <Box flex={1} px={3} >
-                <Routes>
-                  <Route path="/" element={<Welcome />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/settings" element={<Settings />} />
-                  <Route path="/notifications" element={<NotificationPage />} />
-                  <Route path="/actions" element={<Actions />} />
-                  <Route path="/fixlets" element={<Fixlet />} />
-                  <Route path="/create-baselines" element={<Baseline />} />
-                  <Route path='/baselines' element={<BaselineData />} />
-                </Routes>
-              </Box>
-            </Box>
-          </main>
-          <footer>
-            <Notifier />
-            <Footer />
-          </footer>
-        </>
-      }
-      {(isUserLoggedIn && isTimeOut) && <Timeout />}
-    </BrowserRouter>
+            </main>
+            <footer>
+              <Notifier />
+              <Footer />
+            </footer>
+          </>
+        }
+        {(isUserLoggedIn && isTimeOut) && <Timeout />}
+      </BrowserRouter>
+    </DndProvider>
   );
 };
 

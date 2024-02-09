@@ -1,7 +1,6 @@
 import {Autocomplete, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography} from '@mui/material';
 import React, {useState} from 'react';
-import {DndProvider, useDrag, useDrop} from 'react-dnd';
-import {HTML5Backend} from 'react-dnd-html5-backend';
+import {useDrag, useDrop} from 'react-dnd';
 import {BASELINE_COMPONENTS, BASELINE_COMPONENT_ACTIONS} from '../MOCK_DATA';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -45,7 +44,6 @@ const DraggableTable = () => {
     };
 
     return (
-        <DndProvider backend={HTML5Backend} sx={{background: 'transparent'}}>
             <TableContainer component={Paper} sx={{background: 'transparent', color: 'white'}}>
                 <Table sx={{padding: '1rem'}}>
                     <TableHead sx={{borderBottom: '0.07rem solid white'}}>
@@ -83,7 +81,6 @@ const DraggableTable = () => {
                     </TableBody>
                 </Table>
             </TableContainer>
-        </DndProvider>
     );
 };
 
