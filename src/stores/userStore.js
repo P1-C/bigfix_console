@@ -20,7 +20,7 @@ const useUserStore = create(persist(
     logout: () => set((state) => ({ ...state, isUserLoggedIn: false })),
     toggleTheme: () => set((state) => ({ ...state, isDarkTheme: !state.isDarkTheme })),
     enableTimeout: () => set((state) => ({ ...state, isTimeOut: true })),
-    disableTimeout: () => set((state) => ({ ...initialState})),
+    disableTimeout: () => set((state) => ({ ...state, isTimeOut: false, isUserLoggedIn: false })),
   }),
 
   {
