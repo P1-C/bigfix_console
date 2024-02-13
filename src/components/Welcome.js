@@ -5,12 +5,14 @@ import TitleDescriptionCard from './TitleDescriptionCard'
 import ArrowOutwardRoundedIcon from '@mui/icons-material/ArrowOutwardRounded';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 import { Link } from 'react-router-dom';
+import { useTheme } from '@mui/system';
 
 const Welcome = () => {
+  const theme = useTheme();
 
-  const linkBtnStyle = { color: 'white', border: '1px solid rgba(255, 255, 255, 0.3)' }
+  const linkBtnStyle = { color: theme.palette.text.primary }
   return (
-    <Box padding={4} >
+    <Box padding={4} sx={{ color: theme.palette.text.primary}} >
       <Typography variant='h4'>Hey User,</Typography>
       <Typography variant='h4'>Welcome to BigFix Console</Typography>
       <Typography gutterBottom variant="subtitle1">

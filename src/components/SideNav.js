@@ -7,12 +7,14 @@ import TaskIcon from '@mui/icons-material/Task';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import TouchAppIcon from '@mui/icons-material/TouchApp';
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
+import { useTheme } from '@mui/system';
 
 
 function SideNav() {
   const location = useLocation();
   const [contextMenuAnchor, setContextMenuAnchor] = React.useState(null);
   const [ctxMenuType, setCtxMenuType] = React.useState(null);
+  const theme = useTheme()
 
   const handleContextMenu = (event, type) => {
     event.preventDefault();
@@ -29,9 +31,11 @@ function SideNav() {
     <>
       <List sx={{
         backdropFilter: 'blur(1px)',
-        background: 'rgba(255, 255, 255, 0.1)',
+        // background: 'rgba(255, 255, 255, 0.1)',
+        background: theme.palette.divider,
         borderRight: '2px solid rgba(255, 255, 255, 0.3)',
-        height: '98%'
+        height: '98%',
+        color: theme.palette.text.primary
       }}
       onContextMenu={(event)=>{event.preventDefault()}}>
         <ListItemButton component={Link} to="/" selected={location.pathname === '/'}>

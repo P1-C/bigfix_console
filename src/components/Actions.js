@@ -4,10 +4,12 @@ import React, {useState} from 'react';
 import {DataGrid} from '@mui/x-data-grid';
 import {ACTION_COLUMNS, ACTION_ROWS} from '../MOCK_DATA';
 import DrawerComponent from './DrawerComponent';
+import { useTheme } from '@emotion/react';
 
 const Actions = () => {
 
     const [open, setOpen] = useState(false);
+    const theme = useTheme();
 
     const closeDrawer = () => {
         setOpen(false);
@@ -21,23 +23,25 @@ const Actions = () => {
     };
 
     const searchbarStyles = {
-        border: '0.01em solid white',
+        border: `0.01em solid ${theme.palette.text.primary}`,
         borderRadius: '0.3rem'
     };
 
     const dataGridStyles = {
         '& .MuiDataGrid-columnHeader': {
-            color: "white",
+            color: theme.palette.text.primary,
             fontWeight: 700,
         },
         '& .MuiDataGrid-columnSeparator': {
             display: 'none',
         },
         '& .MuiDataGrid-row.Mui-selected': {
-            backgroundColor: '#7752FE'
+            backgroundColor: '#7752FE',
+            color: 'white'
         },
         '& .MuiDataGrid-row:hover, & .MuiDataGrid-row.Mui-selected:hover': {
-            backgroundColor: '#7752FE'
+            backgroundColor: '#7752FE',
+            color: 'white'
         },
         "&.MuiDataGrid-root .MuiDataGrid-cell:focus-within": {
             outline: "none !important",
@@ -45,12 +49,12 @@ const Actions = () => {
         '& .MuiDataGrid-columnHeader--selected': {
             outline: 'none',
         },
-        color: 'white',
+        color: theme.palette.text.primary,
         '& .MuiDataGrid-sortIcon, & .MuiDataGrid-menuIconButton': {
-            color: 'white',
+            color: theme.palette.text.primary,
         },
         '& .MuiCheckbox-root svg path': {
-            color: 'white'
+            color: theme.palette.text.secondary
         },
     };
 
@@ -64,10 +68,10 @@ const Actions = () => {
                     <InputBase
                         placeholder="  Search"
                         color='success'
-                        sx={{padding: '0.2rem', color: 'white'}}
+                        sx={{padding: '0.2rem'}}
                     />
                     <IconButton type="button" aria-label="search">
-                        <SearchIcon sx={{color: 'white'}}/>
+                        <SearchIcon />
                     </IconButton>
                 </div>
             </div>

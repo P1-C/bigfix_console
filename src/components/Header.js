@@ -15,9 +15,12 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchIcon from '@mui/icons-material/Search';
 import useUserStore from '../stores/userStore';
-import { Divider, List, ListItem, ListItemText, MenuList } from '@mui/material';
+import { Divider, List, ListItem, ListItemText, MenuList, Paper } from '@mui/material';
 import { purple } from '@mui/material/colors';
 import { Link } from 'react-router-dom';
+import Brightness7RoundedIcon from '@mui/icons-material/Brightness7Rounded';
+import Brightness4RoundedIcon from '@mui/icons-material/Brightness4Rounded';
+import { useTheme } from '@mui/system';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -61,7 +64,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
-  const { logout, enableTimeout } = useUserStore()
+  const { logout, enableTimeout, isDarkTheme, toggleTheme } = useUserStore()
+  const theme = useTheme()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [bellAnchorEl, setBellAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -207,14 +211,16 @@ export default function Header() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, height: "100%" }}>
-      <AppBar position="static" color="transparent" >
-        <Toolbar  >
+    <Box sx={{ flexGrow: 1, height: "100%", color: theme.palette.text.primary, ...(!isDarkTheme && { background: theme.palette.background.default })}} >
+      <AppBar position="static" color="transparent" sx={{ ...!isDarkTheme && { borderBottom: '1px solid lightgray' }}} >
+        <Toolbar>
           <Typography
-            variant="h6"
+            color='text.primary'
+            variant="body1"
+            fontWeight={700}
             noWrap
             component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ fontSize: "28px", display: { xs: 'none', sm: 'block' } }}
           >
             BigFix Console
           </Typography>
@@ -229,6 +235,15 @@ export default function Header() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search> */}
+          <p>{`Current Theme : ${isDarkTheme ? 'Dark' : 'Light'}`}</p>
+            <IconButton
+              size="large"
+              aria-label="dark theme"
+              color="inherit"
+              onClick={toggleTheme}
+            >
+                { isDarkTheme ? <Brightness7RoundedIcon /> : <Brightness4RoundedIcon />}
+            </IconButton>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"

@@ -1,4 +1,4 @@
-import {Box} from "@mui/material";
+import {Box, CssBaseline, colors} from "@mui/material";
 import Header from "./components/Header";
 import {Route, Routes, BrowserRouter} from 'react-router-dom';
 import Dashboard from "./components/Dashboard";
@@ -18,12 +18,24 @@ import Baseline from "./components/Baseline";
 import Timeout from "./components/Timeout";
 import {DndProvider} from "react-dnd";
 import {HTML5Backend} from "react-dnd-html5-backend";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 function App() {
 
-  const {isUserLoggedIn, isTimeOut} = useUserStore();
+  const {isUserLoggedIn, isTimeOut, isDarkTheme} = useUserStore();
+
+  const theme = createTheme({
+    palette: {
+      mode: isDarkTheme ? 'dark' : 'light',
+      background: {
+        default: '#f7fafe'
+      },
+    },
+    
+  });
   
   return (
+    <ThemeProvider theme={theme}>
     <DndProvider backend={HTML5Backend}>
       <BrowserRouter>
 
@@ -34,7 +46,8 @@ function App() {
               <Header />
             </header>
             <main>
-              <Box display="flex" flexDirection={"row"} height='91vh' overflow='hidden'>
+              <Box display="flex" flexDirection={"row"} height='91vh' overflow='hidden' 
+              sx={{color: theme.palette.text.primary, ...(!isDarkTheme && {background: theme.palette.background.default})}}>
                 <Box width={150}  >
                   <SideNav />
                 </Box>
@@ -61,6 +74,7 @@ function App() {
         {(isUserLoggedIn && isTimeOut) && <Timeout />}
       </BrowserRouter>
     </DndProvider>
+    </ThemeProvider>
   );
 };
 
