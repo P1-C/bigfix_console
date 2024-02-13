@@ -1,11 +1,10 @@
-import {Autocomplete, TextField, ThemeProvider, ToggleButton, ToggleButtonGroup, createTheme} from '@mui/material';
+import {Autocomplete, TextField, ToggleButton, ToggleButtonGroup} from '@mui/material';
 import React, {useState} from 'react';
 import {DOMAINS, EXISTING_SITES} from '../MOCK_DATA';
 import {Box} from '@mui/system';
 import ClearIcon from '@mui/icons-material/Clear';
 import DraggableTable from './DraggableTable';
 import {useTheme} from '@emotion/react';
-import {blue} from '@mui/material/colors';
 
 const Baseline = () => {
     const [value, setValue] = useState('description');
@@ -21,7 +20,6 @@ const Baseline = () => {
         justifyContent: 'start',
         gap: '1rem',
         flex: 1,
-        // color: theme.palette.text.primary
     };
 
     const textFieldStyles = {

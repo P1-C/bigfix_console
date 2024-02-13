@@ -4,44 +4,47 @@ import React from 'react';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import {FormControl} from '@mui/base';
 import ComputersDataTable from './ComputersDataTable';
+import {useTheme} from '@emotion/react';
 
 
 
 const ActionArea = ({value}) => {
 
+    const theme = useTheme();
+
     if (value === 'summary') {
         return (
             <div style={{overflow: 'hidden'}}>
-                <Accordion defaultExpanded style={{backgroundColor: 'black', color: 'white'}}>
+                <Accordion defaultExpanded style={{backgroundColor: theme.palette.mode === 'dark' ? 'black' : theme.palette.background.default, color: theme.palette.text.primary}}>
                     <AccordionSummary
-                        expandIcon={<ExpandMore sx={{color: 'white'}} />}>
+                        expandIcon={<ExpandMore sx={{color: theme.palette.text.primary}} />}>
                         <strong>Status</strong>
                     </AccordionSummary>
                     <AccordionDetails>
                         <Typography>100.00% Completed (1 of 1 applicable computers)</Typography>
                         <TableContainer component={Paper}>
-                            <Table style={{backgroundColor: 'black', border: '0.08rem solid white'}}>
+                            <Table style={{backgroundColor: theme.palette.mode === 'dark' ? 'black' : theme.palette.background.default, border: `0.08rem solid ${theme.palette.text.primary}`}}>
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell style={{color: 'white'}}>Status</TableCell>
-                                        <TableCell style={{color: 'white'}}>Count</TableCell>
-                                        <TableCell style={{color: 'white'}}>Percentage</TableCell>
+                                        <TableCell style={{color: theme.palette.text.primary}}>Status</TableCell>
+                                        <TableCell style={{color: theme.palette.text.primary}}>Count</TableCell>
+                                        <TableCell style={{color: theme.palette.text.primary}}>Percentage</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
                                     <TableRow>
-                                        <TableCell style={{color: 'white'}}>Completed</TableCell>
-                                        <TableCell style={{color: 'white'}}>1</TableCell>
-                                        <TableCell style={{color: 'white'}}>100.00%</TableCell>
+                                        <TableCell style={{color: theme.palette.text.primary}}>Completed</TableCell>
+                                        <TableCell style={{color: theme.palette.text.primary}}>1</TableCell>
+                                        <TableCell style={{color: theme.palette.text.primary}}>100.00%</TableCell>
                                     </TableRow>
                                 </TableBody>
                             </Table>
                         </TableContainer>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion style={{backgroundColor: 'black', color: 'white'}}>
+                <Accordion style={{backgroundColor: theme.palette.mode === 'dark' ? 'black' : theme.palette.background.default, color: theme.palette.text.primary}}>
                     <AccordionSummary
-                        expandIcon={<ExpandMore sx={{color: 'white'}} />}>
+                        expandIcon={<ExpandMore sx={{color: theme.palette.text.primary}} />}>
                         <strong>Behaviour</strong>
                     </AccordionSummary>
                     <AccordionDetails>
@@ -62,8 +65,8 @@ const ActionArea = ({value}) => {
                         </div>
                     </AccordionDetails>
                 </Accordion>
-                <Accordion style={{backgroundColor: 'black', color: 'white'}}>
-                    <AccordionSummary expandIcon={<ExpandMore sx={{color: 'white'}} />}>
+                <Accordion style={{backgroundColor: theme.palette.mode === 'dark' ? 'black' : theme.palette.background.default, color: theme.palette.text.primary}}>
+                    <AccordionSummary expandIcon={<ExpandMore sx={{color: theme.palette.text.primary}} />}>
                         <strong>Details</strong>
                     </AccordionSummary>
                     <AccordionDetails>
@@ -72,21 +75,21 @@ const ActionArea = ({value}) => {
                             <div style={{display: 'flex', justifyContent: 'space-between'}}>
                                 <ListItemText primary='exists main gather service' />
                                 <ListItemIcon>
-                                    <ContentCopyIcon style={{cursor: 'pointer', color: 'white'}} />
+                                    <ContentCopyIcon style={{cursor: 'pointer', color: theme.palette.text.primary}} />
                                 </ListItemIcon>
                             </div>
-                            <Divider style={{color: 'white'}} />
+                            <Divider style={{color: theme.palette.text.primary}} />
                             <div style={{display: 'flex', justifyContent: 'space-between'}}>
                                 <ListItemText primary='name of operating system as lowercase starts with "win"' />
                                 <ListItemIcon>
-                                    <ContentCopyIcon style={{cursor: 'pointer', color: 'white'}} />
+                                    <ContentCopyIcon style={{cursor: 'pointer', color: theme.palette.text.primary}} />
                                 </ListItemIcon>
                             </div>
                             <Divider />
                             <div style={{display: 'flex', justifyContent: 'space-between'}}>
                                 <ListItemText primary='not exists values "PROCESSOR_ARCHITECTURE" whose ..."' />
                                 <ListItemIcon>
-                                    <ContentCopyIcon style={{cursor: 'pointer', color: 'white'}} />
+                                    <ContentCopyIcon style={{cursor: 'pointer', color: theme.palette.text.primary}} />
                                 </ListItemIcon>
                             </div>
                             <Divider />
@@ -109,14 +112,14 @@ const ActionArea = ({value}) => {
         return (
             <div>
                 <FormControl>
-                    <FormLabel style={{color: 'white'}}>Target</FormLabel>
+                    <FormLabel style={{color: theme.palette.text.primary}}>Target</FormLabel>
                     <RadioGroup
                         row
                         defaultValue="selectedDevices"
                     >
-                        <FormControlLabel value="selectDevices" control={<Radio sx={{color: 'white'}} />} label="Select devices" />
-                        <FormControlLabel value="dynamicTarget" control={<Radio sx={{color: 'white'}} />} label="Dynamically target by property" />
-                        <FormControlLabel value="enterDeviceNames" control={<Radio sx={{color: 'white'}} />} label="Enter Device Names" />
+                        <FormControlLabel value="selectDevices" control={<Radio sx={{color: theme.palette.text.primary}} />} label="Select devices" />
+                        <FormControlLabel value="dynamicTarget" control={<Radio sx={{color: theme.palette.text.primary}} />} label="Dynamically target by property" />
+                        <FormControlLabel value="enterDeviceNames" control={<Radio sx={{color: theme.palette.text.primary}} />} label="Enter Device Names" />
                     </RadioGroup>
                 </FormControl>
                 <ComputersDataTable name={'Selected Computers'} />
