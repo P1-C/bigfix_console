@@ -4,6 +4,8 @@ import {DOMAINS, EXISTING_SITES} from '../MOCK_DATA';
 import {Box} from '@mui/system';
 import ClearIcon from '@mui/icons-material/Clear';
 import DraggableTable from './DraggableTable';
+import {useTheme} from '@emotion/react';
+import {blue} from '@mui/material/colors';
 
 const Baseline = () => {
     const [value, setValue] = useState('description');
@@ -11,93 +13,87 @@ const Baseline = () => {
         setValue(event.target.value);
     };
 
+
+    const theme = useTheme();
+
     const buttonStyles = {
         display: 'flex',
         justifyContent: 'start',
         gap: '1rem',
         flex: 1,
-        color: 'white'
+        // color: theme.palette.text.primary
     };
 
     const textFieldStyles = {
         width: 400,
         background: 'transparent',
-        color: 'white',
-        input: {color: 'white'},
+        color: theme.palette.text.primary,
+        input: {color: theme.palette.text.primary},
         '& .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'white',
+            borderColor: theme.palette.text.primary,
         },
         '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: 'white'
+            borderColor: theme.palette.text.primary
         },
     };
 
-    const theme = createTheme({
-        palette: {
-            blue: {
-                main: '#4EEAF6',
-            },
-        },
-    });
 
     return (
-        <ThemeProvider theme={theme}>
-            <Box>
-                <div style={{padding: '1rem'}}>Create a Baseline</div>
-                <div style={buttonStyles}>
-                    <TextField
-                        label="Name"
-                        InputLabelProps={{
-                            style: {color: 'white'},
-                        }}
-                        sx={textFieldStyles}
+        <Box>
+            <div style={{padding: '1rem'}}>Create a Baseline</div>
+            <div style={buttonStyles}>
+                <TextField
+                    label="Name"
+                    InputLabelProps={{
+                        style: {color: theme.palette.text.primary},
+                    }}
+                    sx={textFieldStyles}
 
-                    />
-                    <Autocomplete
-                        options={EXISTING_SITES}
-                        renderInput={(params) => <TextField {...params} label="Site" InputLabelProps={{
-                            style: {color: 'white'},
-                        }}
-                            sx={textFieldStyles} />}
-                        InputProps={{
-                            style: {borderColor: 'white'},
-                        }}
-                        clearIcon={<ClearIcon sx={{color: 'white'}} />}
-                        sx={{textFieldStyles}}
-                    />
-                    <Autocomplete
-                        options={DOMAINS}
-                        renderInput={(params) => <TextField {...params} InputLabelProps={{
-                            style: {color: 'white'},
-                        }}
-                            label="Create in domain"
-                            sx={textFieldStyles} />}
-                        InputProps={{
-                            style: {borderColor: 'white'},
-                        }}
-                        clearIcon={<ClearIcon sx={{color: 'white'}} />}
-                        sx={{textFieldStyles}}
-                    />
+                />
+                <Autocomplete
+                    options={EXISTING_SITES}
+                    renderInput={(params) => <TextField {...params} label="Site" InputLabelProps={{
+                        style: {color: theme.palette.text.primary},
+                    }}
+                        sx={textFieldStyles} />}
+                    InputProps={{
+                        style: {borderColor: theme.palette.text.primary},
+                    }}
+                    clearIcon={<ClearIcon sx={{color: theme.palette.text.primary}} />}
+                    sx={{textFieldStyles}}
+                />
+                <Autocomplete
+                    options={DOMAINS}
+                    renderInput={(params) => <TextField {...params} InputLabelProps={{
+                        style: {color: theme.palette.text.primary},
+                    }}
+                        label="Create in domain"
+                        sx={textFieldStyles} />}
+                    InputProps={{
+                        style: {borderColor: theme.palette.text.primary},
+                    }}
+                    clearIcon={<ClearIcon sx={{color: theme.palette.text.primary}} />}
+                    sx={{textFieldStyles}}
+                />
 
-                </div>
-                <ToggleButtonGroup
-                    value={value}
-                    onChange={handleChange}
-                    exclusive
-                    color='blue'
-                    sx={{color: 'white', margin: '0.8rem 0'}}
-                    fullWidth
+            </div>
+            <ToggleButtonGroup
+                value={value}
+                onChange={handleChange}
+                exclusive
+                color={theme.palette.mode === 'dark' ? 'success' : 'info'}
+                sx={{margin: '0.8rem 0'}}
+                fullWidth
 
-                >
-                    <ToggleButton variant='outlined' sx={{color: 'white'}} value='description'>Description</ToggleButton>
-                    <ToggleButton variant='outlined' sx={{color: 'white'}} value='components'>Components</ToggleButton>
-                    <ToggleButton variant='outlined' sx={{color: 'white'}} value='relevance'>Relevance</ToggleButton>
-                    <ToggleButton variant='outlined' sx={{color: 'white'}} value='properties'>Properties</ToggleButton>
-                </ToggleButtonGroup>
+            >
+                <ToggleButton variant='outlined' sx={{color: theme.palette.text.primary}} value='description'>Description</ToggleButton>
+                <ToggleButton variant='outlined' sx={{color: theme.palette.text.primary}} value='components'>Components</ToggleButton>
+                <ToggleButton variant='outlined' sx={{color: theme.palette.text.primary}} value='relevance'>Relevance</ToggleButton>
+                <ToggleButton variant='outlined' sx={{color: theme.palette.text.primary}} value='properties'>Properties</ToggleButton>
+            </ToggleButtonGroup>
 
-                <DraggableTable />
-            </Box>
-        </ThemeProvider>
+            <DraggableTable />
+        </Box>
     );
 };
 

@@ -1,21 +1,26 @@
 import {DataGrid} from '@mui/x-data-grid';
 import React from 'react';
 import {BASELINE_COLUMNS, BASELINE_ROWS} from '../MOCK_DATA';
+import {useTheme} from '@emotion/react';
 
 const BaselineData = () => {
+    const theme = useTheme()
+    
     const dataGridStyles = {
         '& .MuiDataGrid-columnHeader': {
-            color: "white",
+            color: theme.palette.text.primary,
             fontWeight: 700,
         },
         '& .MuiDataGrid-columnSeparator': {
             display: 'none',
         },
         '& .MuiDataGrid-row.Mui-selected': {
-            backgroundColor: '#7752FE'
+            backgroundColor: '#7752FE',
+            color: 'white'
         },
         '& .MuiDataGrid-row:hover, & .MuiDataGrid-row.Mui-selected:hover': {
-            backgroundColor: '#7752FE'
+            backgroundColor: '#7752FE',
+            color: 'white'
         },
         "&.MuiDataGrid-root .MuiDataGrid-cell:focus-within": {
             outline: "none !important",
@@ -23,19 +28,16 @@ const BaselineData = () => {
         '& .MuiDataGrid-columnHeader--selected': {
             outline: 'none',
         },
-        color: 'white',
+        color: theme.palette.text.primary,
         '& .MuiDataGrid-sortIcon, & .MuiDataGrid-menuIconButton': {
-            color: 'white',
+            color: theme.palette.text.primary,
         },
-        margin: '1rem 0',
-        height: '80vh',
-        '& .MuiToolbar-root': {
-            color: 'white'
+        '& .MuiCheckbox-root svg path': {
+            color: theme.palette.text.primary
         },
-        '& .MuiSvgIcon-root': {
-            color: 'white'
-        }
     };
+
+
     return (
         <DataGrid
             rows={BASELINE_ROWS}

@@ -4,6 +4,7 @@ import {useDrag, useDrop} from 'react-dnd';
 import {BASELINE_COMPONENTS, BASELINE_COMPONENT_ACTIONS} from '../MOCK_DATA';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import {useTheme} from '@emotion/react';
 
 const ItemType = 'TABLE_ROW';
 
@@ -36,6 +37,8 @@ const DraggableRow = ({index, moveRow, children}) => {
 const DraggableTable = () => {
     const [data, setData] = useState(BASELINE_COMPONENTS);
 
+    const theme = useTheme()
+
     const moveRow = (fromIndex, toIndex) => {
         const updatedData = [...data];
         const [movedRow] = updatedData.splice(fromIndex, 1);
@@ -44,7 +47,7 @@ const DraggableTable = () => {
     };
 
     return (
-            <TableContainer component={Paper} sx={{background: 'transparent', color: 'white'}}>
+            <TableContainer component={Paper} sx={{background: 'transparent', color: theme.palette.text.primary}}>
                 <Table sx={{padding: '1rem'}}>
                     <TableHead sx={{borderBottom: '0.07rem solid white'}}>
                         <Typography component='h3' style={{padding: '0.4rem'}}>Component Group 1</Typography>
@@ -52,30 +55,30 @@ const DraggableTable = () => {
                     <TableBody>
                         {data.map((row, index) => (
                             <DraggableRow key={row.id} index={index} moveRow={moveRow}>
-                                <TableCell sx={{color: 'white'}}>
+                                <TableCell sx={{color: theme.palette.text.primary}}>
                                     <ArrowForwardIosIcon sx={{position: 'relative', top: '0.4rem'}} />
                                     {row.column1}
                                 </TableCell>
-                                <TableCell sx={{color: 'white'}}>
+                                <TableCell sx={{color: theme.palette.text.primary}}>
                                     <Autocomplete
                                         options={BASELINE_COMPONENT_ACTIONS}
                                         renderInput={(params) => <TextField {...params} label="Select Action" InputLabelProps={{
-                                            style: {color: 'white'},
+                                            style: {color: theme.palette.text.primary},
                                         }} />}
                                         sx={{
                                             width: 250,
-                                            input: {color: 'white'},
+                                            input: {color: theme.palette.text.primary},
                                             '& .MuiOutlinedInput-notchedOutline': {
-                                                borderColor: 'white',
+                                                borderColor: theme.palette.text.primary,
                                             },
                                             '&:hover .MuiOutlinedInput-notchedOutline': {
-                                                borderColor: 'white'
+                                                borderColor: theme.palette.text.primary
                                             }
                                         }}
                                     />
                                 </TableCell>
 
-                                <TableCell sx={{color: 'white', cursor: 'pointer'}}><CloseIcon /></TableCell>
+                                <TableCell sx={{color: theme.palette.text.primary, cursor: 'pointer'}}><CloseIcon /></TableCell>
                             </DraggableRow>
                         ))}
                     </TableBody>

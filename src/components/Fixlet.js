@@ -2,6 +2,7 @@ import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Button } from "@mui/material";
 import useNotificationStore from "../stores/notificationStore";
+import {useTheme} from "@emotion/react";
 
 const rows = [
   {
@@ -98,6 +99,8 @@ const rows = [
 
 export default function Fixlet() {
   const { showNotification } = useNotificationStore();
+  const theme = useTheme();
+
   const columns = [
     { field: "id", headerName: "ID", width: 50 },
     { field: "name", headerName: "Name", width: 250 },
@@ -158,18 +161,18 @@ export default function Fixlet() {
         pageSizeOptions={[5, 8, 10]}
         checkboxSelection
         sx={{
-          color: "white",
+          color: theme.palette.text.primary,
           height: "80%",
           backdropFilter: "blur('4px')",
           background: "rgba(255, 255, 255, 0.1)",
           '& .MuiCheckbox-root svg path': {
-            color: 'white'
+            color: theme.palette.text.primary
           },
           '& .MuiToolbar-root': {
-            color: 'white'
+            color: theme.palette.text.primary
           },
           '& .MuiSvgIcon-root': {
-            color: 'white'
+            color: theme.palette.text.primary
           }
         }}
       />
