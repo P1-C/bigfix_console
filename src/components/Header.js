@@ -160,7 +160,7 @@ export default function Header() {
         </MenuItem>
         <Divider />
         <MenuItem component={Link} to="/notifications" onClick={handleBellMenuClose}>
-            <ListItemText sx={{ color: 'purple' }}>See all notifications</ListItemText>
+          <ListItemText sx={{ color: 'purple' }}>See all notifications</ListItemText>
         </MenuItem>
       </MenuList>
     </Menu>
@@ -183,6 +183,16 @@ export default function Header() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem onClick={toggleTheme}>
+        <IconButton
+          size="large"
+          aria-label="dark theme"
+          color="inherit"
+        >
+          {isDarkTheme ? <Brightness7RoundedIcon /> : <Brightness4RoundedIcon />}
+        </IconButton>
+        <p>Switch theme</p>
+      </MenuItem>
       <MenuItem onClick={handleBellMenuOpen}>
         <IconButton
           size="large"
@@ -211,8 +221,8 @@ export default function Header() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1, height: "100%", color: theme.palette.text.primary, ...(!isDarkTheme && { background: theme.palette.background.default })}} >
-      <AppBar position="static" color="transparent" sx={{ ...!isDarkTheme && { borderBottom: '1px solid lightgray' }}} >
+    <Box sx={{ flexGrow: 1, height: "100%", color: theme.palette.text.primary, ...(!isDarkTheme && { background: theme.palette.background.default }) }} >
+      <AppBar position="static" color="transparent" sx={{ ...!isDarkTheme && { borderBottom: '1px solid lightgray' } }} >
         <Toolbar>
           <Typography
             color='text.primary'
@@ -235,14 +245,13 @@ export default function Header() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search> */}
-          <p>{`Current Theme : ${isDarkTheme ? 'Dark' : 'Light'}`}</p>
             <IconButton
               size="large"
               aria-label="dark theme"
               color="inherit"
               onClick={toggleTheme}
             >
-                { isDarkTheme ? <Brightness7RoundedIcon /> : <Brightness4RoundedIcon />}
+              {isDarkTheme ? <Brightness7RoundedIcon /> : <Brightness4RoundedIcon />}
             </IconButton>
             <IconButton
               size="large"

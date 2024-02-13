@@ -28,6 +28,7 @@ const Actions = () => {
     };
 
     const dataGridStyles = {
+        
         '& .MuiDataGrid-columnHeader': {
             color: theme.palette.text.primary,
             fontWeight: 700,
@@ -75,13 +76,13 @@ const Actions = () => {
                     </IconButton>
                 </div>
             </div>
-            <div style={{minHeight: '79vh', width: 'calc(100vw - 170)'}}>
+            <div >
                 <DataGrid
                     sx={dataGridStyles}
                     rows={ACTION_ROWS}
                     columns={ACTION_COLUMNS}
                     checkboxSelection
-                    hideFooter
+                    
                     onCellClick={() => {setOpen(true);}}
                 />
             </div>

@@ -9,9 +9,8 @@ const TitleDescriptionCard = ({ title, description }) => {
     return (
         <Box component={Paper} my={2} borderRadius={5} px={2} py={2} minHeight={200} sx={{
             backdropFilter: 'blur(1px)',
-            // background: 'rgba(255, 255, 255, 0.1)',
             background: theme.palette.divider,
-            border: '2px solid rgba(255, 255, 255, 0.3)'
+            border: `1px solid ${theme.palette.text.disabled}`
           }}>
             <Typography gutterBottom><strong>{title}</strong></Typography>
             <Box paddingTop={1}>

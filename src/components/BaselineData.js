@@ -1,12 +1,13 @@
-import {DataGrid} from '@mui/x-data-grid';
+import { DataGrid } from '@mui/x-data-grid';
 import React from 'react';
-import {BASELINE_COLUMNS, BASELINE_ROWS} from '../MOCK_DATA';
-import {useTheme} from '@emotion/react';
+import { BASELINE_COLUMNS, BASELINE_ROWS } from '../MOCK_DATA';
+import { useTheme } from '@emotion/react';
 
 const BaselineData = () => {
     const theme = useTheme()
-    
+
     const dataGridStyles = {
+        height: "80%",
         '& .MuiDataGrid-columnHeader': {
             color: theme.palette.text.primary,
             fontWeight: 700,
@@ -39,11 +40,14 @@ const BaselineData = () => {
 
 
     return (
-        <DataGrid
-            rows={BASELINE_ROWS}
-            columns={BASELINE_COLUMNS}
-            sx={dataGridStyles}
-        />
+        <>
+            <h3>Baselines</h3>
+            <DataGrid
+                rows={BASELINE_ROWS}
+                columns={BASELINE_COLUMNS}
+                sx={dataGridStyles}
+            />
+        </>
     );
 };
 
