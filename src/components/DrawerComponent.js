@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import React from 'react';
 import Tab from '@mui/material/Tab';
 import ActionArea from './ActionArea';
+import {useTheme} from '@emotion/react';
 
 
 const DrawerComponent = ({open, onClose}) => {
@@ -16,27 +17,29 @@ const DrawerComponent = ({open, onClose}) => {
         setValue(newValue);
     };
 
+    const theme = useTheme();
+    
     const buttonStyles = {
         display: 'flex',
         justifyContent: 'start',
         gap: '0.5rem',
         flex: 1,
-
     };
     const drawerStyles = {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'start',
-        gap: '0.8rem'
+        gap: '0.8rem',
     };
+
     return (
         <div>
             <Drawer
                 PaperProps={{
                     sx: {
                         width: '50%',
-                        backgroundColor: '#0F0F0F',
-                        color: 'white',
+                        backgroundColor: theme.palette.mode === 'dark' ? 'black' : theme.palette.background.default,
+                        color: theme.palette.text.primary,
                         padding: '0.5rem'
                     }
                 }}
@@ -49,7 +52,7 @@ const DrawerComponent = ({open, onClose}) => {
                 <div style={drawerStyles}>
                     <div style={{display: 'flex', justifyContent: 'space-between', padding: '0.2rem'}}>
                         <Typography variant='h6' style={{padding: '0.2rem'}}>Action: Accept Licence for Patch</Typography>
-                        <IconButton onClick={onClose} sx={{color: 'whitesmoke'}}><CloseIcon /></IconButton>
+                        <IconButton onClick={onClose} sx={{color: theme.palette.text.primary}}><CloseIcon /></IconButton>
                     </div>
                     <ButtonGroup style={buttonStyles} fullWidth >
                         <Button variant='contained' sx={{borderRadius: '0.6rem'}} color='error' startIcon={<StopIcon />}>Stop</Button>
@@ -66,9 +69,9 @@ const DrawerComponent = ({open, onClose}) => {
                             aria-label="secondary tabs example"
                             variant='fullWidth'
                         >
-                            <Tab style={{color: 'white'}} value="summary" label="Summary" />
-                            <Tab style={{color: 'white'}} value="reportedComputers" label="Reported Computers" />
-                            <Tab style={{color: 'white'}} value="target" label="Target" />
+                            <Tab style={{color: theme.palette.text.primary}} value="summary" label="Summary" />
+                            <Tab style={{color: theme.palette.text.primary}} value="reportedComputers" label="Reported Computers" />
+                            <Tab style={{color: theme.palette.text.primary}} value="target" label="Target" />
                         </Tabs>
                     </Box>
 
