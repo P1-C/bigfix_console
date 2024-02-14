@@ -160,7 +160,7 @@ export default function Header() {
         </MenuItem>
         <Divider />
         <MenuItem component={Link} to="/notifications" onClick={handleBellMenuClose}>
-          <ListItemText sx={{ color: 'purple' }}>See all notifications</ListItemText>
+          <ListItemText sx={{ color: theme.palette.secondary.main }}>See all notifications</ListItemText>
         </MenuItem>
       </MenuList>
     </Menu>
