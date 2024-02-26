@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Button } from "@mui/material";
 import useNotificationStore from "../stores/notificationStore";
 import {useTheme} from "@emotion/react";
+import Filter from "./Filter";
 
 const rows = [
   {
@@ -150,6 +151,7 @@ export default function Fixlet() {
   return (
     <>
       <h3>Fixlets</h3>
+      <Filter />
       <DataGrid
         rows={rows}
         columns={columns}
