@@ -1,102 +1,14 @@
 import * as React from "react";
-import { DataGrid } from "@mui/x-data-grid";
-import { Button } from "@mui/material";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { IconButton, Tooltip } from "@mui/material";
 import useNotificationStore from "../stores/notificationStore";
 import {useTheme} from "@emotion/react";
 import Filter from "./Filter";
+import PlayCircleRoundedIcon from '@mui/icons-material/PlayCircleRounded';
+import { FIXLETS_ROWS } from "../MOCK_DATA";
 
-const rows = [
-  {
-    id: 1,
-    name: "BES Client setting: CPU Usage",
-    site: "BES Support",
-    source: "BigFix",
-    applicableComputers: "1/1",
-    category: "BES Client",
-    downloadSize: "NA",
-    openAction: 0,
-  },
-  {
-    id: 2,
-    name: "BES Client setting: Enable Debug Logging",
-    site: "BES Support",
-    source: "BigFix",
-    applicableComputers: "1/1",
-    category: "BES Client",
-    downloadSize: "NA",
-    openAction: 0,
-  },
-  {
-    id: 3,
-    name: "BES Client setting: Lock Computer",
-    site: "BES Support",
-    source: "BigFix",
-    applicableComputers: "1/1",
-    category: "BES Client",
-    downloadSize: "NA",
-    openAction: 0,
-  },
-  {
-    id: 4,
-    name: "BES Client setting: Enable Auto Relay Selection",
-    site: "BES Support",
-    source: "BigFix",
-    applicableComputers: "1/1",
-    category: "BES Client",
-    downloadSize: "NA",
-    openAction: 0,
-  },
-  {
-    id: 5,
-    name: "BES Quick Reference- Production",
-    site: "BES Support",
-    source: "BigFix",
-    applicableComputers: "1/1",
-    category: "Support",
-    downloadSize: "NA",
-    openAction: 0,
-  },
-  {
-    id: 6,
-    name: "Change console log level",
-    site: "BES Support",
-    source: "BigFix",
-    applicableComputers: "1/1",
-    category: "Internal",
-    downloadSize: "NA",
-    openAction: 0,
-  },
-  {
-    id: 7,
-    name: "Install BigFix Helper Service",
-    site: "BES Support",
-    source: "BigFix",
-    applicableComputers: "1/1",
-    category: "Support",
-    downloadSize: "NA",
-    openAction: 0,
-  },
-  {
-    id: 8,
-    name: "Restart Needed",
-    site: "BES Support",
-    source: "BigFix",
-    applicableComputers: "1/1",
-    category: "Computer Support",
-    downloadSize: "NA",
-    openAction: 0,
-  },
-  {
-    id: 9,
-    name: "Stop Service",
-    site: "BES Support",
-    source: "BigFix",
-    applicableComputers: "1/1",
-    category: "Common Tasks",
-    downloadSize: "NA",
-    openAction: 0,
-  },
-];
+const rows = FIXLETS_ROWS
+
 
 export default function Fixlet() {
   const { showNotification } = useNotificationStore();
@@ -134,7 +46,7 @@ export default function Fixlet() {
       width: 150,
       renderCell: (params) => {
         return (
-          <Button
+          <IconButton
             variant="contained"
             color="primary"
             onClick={() => {
@@ -142,8 +54,10 @@ export default function Fixlet() {
               setTimeout(() => { showNotification(`${params.row.name} has been Applied successfully`) }, 10000)
             }}
           >
-            Submit
-          </Button>
+            <Tooltip title='deploy'>
+              <PlayCircleRoundedIcon />
+            </Tooltip>
+          </IconButton>
         );
       },
     },
@@ -153,19 +67,34 @@ export default function Fixlet() {
       <h3>Fixlets</h3>
       <Filter />
       <DataGrid
+        density="compact"
         rows={rows}
         columns={columns}
         initialState={{
           pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
+            paginationModel: { page: 0, pageSize: 7 },
           },
         }}
-        pageSizeOptions={[5, 8, 10]}
+        // disableColumnFilter
+        disableColumnSelector
+        disableDensitySelector
+        
+        pageSizeOptions={[7, 10]}
         checkboxSelection
+        slots={{ toolbar: GridToolbar }}
+        slotProps={{
+          toolbar: {
+            csvOptions: { disableToolbarButton: true },
+            printOptions: { disableToolbarButton: true },
+            showQuickFilter: true,
+            quickFilterProps: { debounceMs: 400 },
+          },
+        }}
         sx={{
+          // marginTop: 8,
           color: theme.palette.text.primary,
-          height: "80%",
-          backdropFilter: "blur('4px')",
+          height: "61%",
+          backdropFilter: "blur('3px')",
           background: "rgba(255, 255, 255, 0.1)",
           '& .MuiCheckbox-root svg path': {
             color: theme.palette.text.primary
