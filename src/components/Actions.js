@@ -82,7 +82,6 @@ const Actions = () => {
                     rows={ACTION_ROWS}
                     columns={ACTION_COLUMNS}
                     checkboxSelection
-                    
                     onCellClick={() => {setOpen(true);}}
                 />
             </div>
