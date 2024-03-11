@@ -1,9 +1,11 @@
-import {Button, FormControl, IconButton, InputLabel, MenuItem, Select} from '@mui/material';
+import {Button, FormControl, FormControlLabel, IconButton, InputLabel, MenuItem, Select, Switch} from '@mui/material';
 import RotateLeftIcon from '@mui/icons-material/RotateLeft';
 import React, {useState} from 'react';
+import NonRelevantSwitch from './NonRelevantSwitch';
 
 const Filter = () => {
     const [column, setColumn] = useState({});
+    const [switchFlag, setSwitchFlag] = useState(true)
 
     const handleChange = (e, column) => {
         setColumn({...column, [column]: e.target.value});
@@ -11,8 +13,19 @@ const Filter = () => {
     return (
         <div style={{margin: '1rem 0', width: '100%',
         //  border: '1px solid black',padding: '0.1rem',
-         display: 'flex',gap: '0.5rem'
+         display: 'flex',gap: '0.5rem', alignItems: 'center'
          }}>
+            <NonRelevantSwitch  />
+            <FormControl size='small'>
+                <FormControlLabel
+            
+            control={
+                <Switch checked={switchFlag} onChange={()=>setSwitchFlag(!switchFlag)} size='small'  />
+            }
+            label="Show Non-Relevant Content"
+        />
+            </FormControl>
+            <NonRelevantSwitch  />
             <FormControl size='small'>
                 <InputLabel>Site</InputLabel>
                 <Select

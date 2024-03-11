@@ -6,6 +6,7 @@ import {useTheme} from "@emotion/react";
 import Filter from "./Filter";
 import PlayCircleRoundedIcon from '@mui/icons-material/PlayCircleRounded';
 import { FIXLETS_ROWS } from "../MOCK_DATA";
+import NonRelevantSwitch from "./NonRelevantSwitch";
 
 const rows = FIXLETS_ROWS
 
@@ -65,6 +66,7 @@ export default function Fixlet() {
   return (
     <>
       <h3>Fixlets</h3>
+      {/* <NonRelevantSwitch /> */}
       <Filter />
       <DataGrid
         density="compact"
